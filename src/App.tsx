@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from 'taranis-ui/lib/components'
+
 import taranisLogo from './assets/company-logos/taranis.svg'
 import './App.css'
 
