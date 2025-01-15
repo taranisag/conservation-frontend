@@ -22,13 +22,14 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.test.ts', '**/*.test.tsx'],
-      env: {
-        jest: true,
-      },
+      files: ['vite.config.ts'],
       rules: {
-        'import/no-extraneous-dependencies': 'off',
-        'global-require': 'off',
+        'import/no-extraneous-dependencies': [
+          'error',
+          {
+            devDependencies: ['vite.config.ts'],
+          },
+        ],
       },
     },
   ],
