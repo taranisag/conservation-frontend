@@ -1,6 +1,5 @@
 import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-
 import { CssBaseline, StyledEngineProvider, ThemeProvider } from '@mui/material'
 import { ThemeLight } from 'taranis-ui/lib/theme'
 
