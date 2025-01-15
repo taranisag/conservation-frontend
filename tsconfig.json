@@ -1,5 +1,6 @@
 {
   "files": [],
+  "include": ["src", ".eslintrc.cjs"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
