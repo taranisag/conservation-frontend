@@ -1,6 +1,10 @@
 pipeline {
     agent any  
 
+    tools {
+        nodejs 'nodejs-latest'  // Reference the Node.js tool installation (ensure it's configured in Jenkins Global Tool Configuration)
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -18,19 +22,26 @@ pipeline {
             }
         }
 
-        stage("Run ESLint") {
+        stage('Run ESLint') {
             steps {
                 script {
-                    def junitResultsFile = "junit-results.xml";
-                    def containerName = UUID.randomUUID().toString();
-                    dockerRunCommand(buildImageCacheName, containerName, "sleep 600000", true);
-                    print("commitId: ${commitId}");
+                    def junitResultsFile = "junit-results.xml"
+                    def containerName = UUID.randomUUID().toString()
+                    def commitId = sh(returnStdout: true, script: "git rev-parse HEAD").trim()  // Get commit ID
+
+                    // Run a Docker container in the background
+                    dockerRunCommand(buildImageCacheName, containerName, "sleep 600000", true)
+
+                    print("commitId: ${commitId}")
+
+                    // Get the list of committed files in the current commit
                     def committedFilesString = sh(returnStdout: true, script: "git diff-tree --no-commit-id --name-only -r ${commitId}").trim()
+                    print("committedFiles: ${committedFilesString}")
 
-                    print("committedFiles: ${committedFilesString}");
-
+                    // Split committed files into a list
                     def committedFilesList = committedFilesString.split('\n')
 
+                    // Filter files for TypeScript files (.ts and .tsx)
                     def filteredFiles = committedFilesList.findAll { file ->
                         file.endsWith('.ts') || file.endsWith('.tsx')
                     }
@@ -40,14 +51,17 @@ pipeline {
                         sh(script: "test -e ${file}", returnStatus: true) == 0
                     }
 
-                    // Run ESLint on filtered files, or change to '.' to lint all files
+                    // Join the filtered and existing files into a space-separated string for linting
                     def joinedFiles = existingFiles.join(' ')
                     if (joinedFiles.isEmpty()) {
-                        joinedFiles = '.'
+                        joinedFiles = '.'  // If no files are found, lint all files
                     }
 
-                    dockerExecCommand(containerName, "npm run lint ${joinedFiles}");
-                    dockerRemoveContainer(containerName);
+                    // Run ESLint on the selected files
+                    dockerExecCommand(containerName, "npm run lint ${joinedFiles}")
+
+                    // Remove the Docker container after linting
+                    dockerRemoveContainer(containerName)
                 }
             }
         }
@@ -64,10 +78,10 @@ pipeline {
 
     post {
         success {
-            echo ' passed successfully!'
+            echo 'Linting passed successfully!'
         }
         failure {
-            echo ' failed.'
+            echo 'Linting failed.'
         }
     }
 }
