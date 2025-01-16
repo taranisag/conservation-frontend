@@ -57,23 +57,7 @@ module.exports = {
       {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
         'newlines-between': 'always',
-        pathGroups: [
-          {
-            pattern: '{app/@components/**,app/@components,app/components/**,app/components}',
-            group: 'internal',
-            position: 'before',
-          },
-          {
-            pattern: '{app/store/**,app/store,app/reducers,app/reducers/**}',
-            group: 'internal',
-            position: 'after',
-          },
-          {
-            pattern: '{app/services/**,app/services,app/utils,app/utils/**,@utils/,@utils/**,@services/,@services/**}',
-            group: 'internal',
-            position: 'after',
-          },
-        ],
+        pathGroups: [],
       },
     ],
     'padding-line-between-statements': [
@@ -109,9 +93,7 @@ module.exports = {
         paths: ['src'],
       },
       typescript: {
-        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-
-        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+        alwaysTryTypes: true, 
 
         // use <root>/path/to/folder/tsconfig.json
         project: './tsconfig.json',
