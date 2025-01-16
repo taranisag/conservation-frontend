@@ -1,10 +1,6 @@
 pipeline {
     agent any  
 
-    tools {
-        nodejs 'nodejs-latest'  // Reference the Node.js tool installation (ensure it's configured in Jenkins Global Tool Configuration)
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -16,6 +12,9 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
+                    // Install Node.js and npm if needed
+                    sh 'curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -'
+                    sh 'sudo apt-get install -y nodejs'
                     // Installing project dependencies (this includes eslint if it's listed in package.json)
                     sh 'npm install'
                 }
