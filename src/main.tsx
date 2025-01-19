@@ -6,15 +6,23 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 
 import { PlansPage } from './pages/PlansPage'
 import App from './App'
+import { MainHeader } from './components/mainHeader'
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
-    },
-    {
-        path: '/plans',
-        element: <PlansPage />,
+        element: <MainHeader />,
+        children: [
+            {
+                index: true,
+                element: <App />,
+            },
+            {
+                path: '/plans',
+                element: <PlansPage />,
+            },
+            // Add more pages here if needed
+        ],
     },
     // Catch-all route to redirect any invalid paths home page
     {
