@@ -21,7 +21,6 @@ const router = createBrowserRouter([
                 path: '/plans',
                 element: <PlansPage />,
             },
-            // Add more pages here if needed
         ],
     },
     // Catch-all route to redirect any invalid paths home page
