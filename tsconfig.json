@@ -6,7 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "declaration": false, // Ensure declarations are generated
+    "declaration": false, // Ensure declarations are not generated
     "outDir": "./dist", // Emit files to the dist directory
     "baseUrl": ".",
     "paths": {
