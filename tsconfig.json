@@ -6,8 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "declaration": true, // Ensure declarations are generated
-    "declarationMap": true, // Optional: Generate .d.ts.map files
+    "declaration": false, // Ensure declarations are not generated
     "outDir": "./dist", // Emit files to the dist directory
     "baseUrl": ".",
     "paths": {
