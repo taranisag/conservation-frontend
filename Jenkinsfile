@@ -1,23 +1,5 @@
-pipeline {
-    agent any  
+@Library('taranis-jenkins-library')_
 
-    stages {
-
-        stage('Post-Test Actions') {
-            steps {
-                script {
-                    echo 'Jenkins Tests are complete.'
-                }
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Tests passed successfully!'
-        }
-        failure {
-            echo 'Tests failed.'
-        }
-    }
+node {
+    pipelineBuildAndDeployFromHelmDirectory('conservation-frontend', ['taranis-api-us-east-4'], 'helm', 'Dockerfile', null, 'conservation-tool')
 }
