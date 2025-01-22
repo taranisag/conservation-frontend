@@ -15,11 +15,8 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY package.json /app
 COPY package-lock.json /app
-ARG FURY_TOKEN
-RUN echo "registry=https://npm-proxy.fury.io/taranis/" > .npmrc
-RUN echo "//npm-proxy.fury.io/taranis/:_authToken=${FURY_TOKEN}" >> .npmrc
 
-RUN npm install --legacy-peer-deps --userconfig=.npmrc
+RUN npm install --legacy-peer-deps
 
 # Build the app
 COPY . /app
