@@ -39,10 +39,15 @@ export const SearchTextField: React.FC<SearchTextFieldProps> = (props) => {
             {onClear && (
                 <Box className={styles.searchTextFieldPostfix}>
                     {textValue && (
-                        <IconClose
-                            sx={{ width: 12, height: 12, cursor: 'pointer' }}
-                            onClick={onClear}
-                        />
+                        <Box onClick={onClear}>
+                            <IconClose
+                                sx={{
+                                    width: 12,
+                                    height: 12,
+                                    cursor: 'pointer',
+                                }}
+                            />
+                        </Box>
                     )}
                 </Box>
             )}
