@@ -2,29 +2,45 @@
 import React from 'react'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { IconTaranisConservation, IconAvatar } from 'taranis-ui'
 import { bindMenu, bindTrigger } from 'material-ui-popup-state'
 import { usePopupState } from 'material-ui-popup-state/hooks'
 
-import './styles.scss'
+import { SubHeader } from '../SubHeader/SubHeader'
+import { Routes } from '../../utils/constants/navigation'
+
+import styles from './style.module.scss'
 
 export const MainHeader: React.FC = () => {
+    const location = useLocation()
+    const showSubHeader = ['/plans', '/menu1', '/menu2'].includes(
+        location.pathname
+    )
+    const SubHeaderPages = [
+        { label: 'Plans', path: Routes.plans },
+        // { label: 'Menu 1', path: Routes.menu1 },  => for future we need to rename the component and path
+        // { label: 'Menu 2', path: Routes.menu2 },  => for future we need to rename the component and path
+    ]
+
     const popupState = usePopupState({
         variant: 'popover',
         popupId: 'demoPopover',
     })
 
+    if (location.pathname === '/login') return null
+
     return (
         <Box>
-            <Box data-cy="main-header" className="mainHeader">
+            <Box data-cy="main-header" className={styles.mainHeader}>
                 <IconTaranisConservation sx={{ width: 225, height: 26 }} />
                 <IconAvatar {...bindTrigger(popupState)} />
                 <Menu {...bindMenu(popupState)}>
                     <MenuItem onClick={popupState.close}>Logout</MenuItem>
                 </Menu>
             </Box>
+            {showSubHeader && <SubHeader pages={SubHeaderPages} />}
 
             <Box data-cy="page-body">
                 <Outlet />
