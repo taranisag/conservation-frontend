@@ -1,5 +1,3 @@
-// 
-
 #!/usr/bin/env groovy
 @Library("taranis-jenkins-library")_
 abortOlderBuilds();
