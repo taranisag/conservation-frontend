@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-import { Box, IconPlus, TaranisButton, Text } from 'taranis-ui'
-
-import { SearchTextField } from '../../../../components/SearchTextField'
+import { Box, IconPlus, SearchTextField, TaranisButton, Text } from 'taranis-ui'
 
 import styles from './style.module.scss'
 
 export const PlansHeader: React.FC = () => {
-    // State to store the input value
     const [textValue, setTextValue] = useState<string>('')
 
-    // Handler function to update state on input change
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTextValue(event.target.value)
     }
