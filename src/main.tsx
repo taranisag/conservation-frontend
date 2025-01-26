@@ -22,14 +22,6 @@ const router = createBrowserRouter([
                 path: Routes.plans,
                 element: <PlansPage />,
             },
-            // {
-            //     path: Routes.menu1,
-            //     element: <Menu1 />,
-            // },
-            // {
-            //     path: Routes.menu2,
-            //     element: <Menu2 />,
-            // },
         ],
     },
     // Catch-all route to redirect any invalid paths home page
