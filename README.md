@@ -6,7 +6,7 @@ This is a frontend project bootstrapped with [Vite](https://vitejs.dev/). It inc
 
 Before getting started, ensure you have the following software installed:
 
-- [Node.js](https://nodejs.org/) (version 16.8 or higher)
+- [Node.js](https://nodejs.org/) (version 20 or higher)
 - [npm](https://www.npmjs.com/) (Node Package Manager)
 
 You can check if you have Node.js and npm installed by running these commands:
