@@ -84,7 +84,7 @@ podTemplate(label: "helm3GcloudPod", containers: [
                 dockerRepository: dockerRepository,
                 dockerTag: servingImageTag,
                 legacyChartName: "helm",
-                platform: "conservation"
+                platform: "conservation-tool"
             );
         }
 
