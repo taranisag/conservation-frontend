@@ -36,6 +36,7 @@ module.exports = {
   rules: {
     'no-debugger': 2,
     'import/prefer-default-export': 0,
+    "react/require-default-props": "off",
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/camelcase': "off",
     '@typescript-eslint/explicit-function-return-type': 'off',

@@ -1,8 +1,14 @@
 import React from 'react'
-import { Box } from 'taranis-ui'
+import { Box, Text } from 'taranis-ui'
 
-import './styles.scss'
+import styles from './style.module.scss'
+import { PlansHeader } from './components/PlansHeader'
 
 export const PlansPage: React.FC = () => (
-    <Box className="container">Plans Page</Box>
+    <Box className={styles.container}>
+        <Box className={styles.midContainer}>
+            <PlansHeader />
+            <Text> Plans Table</Text>
+        </Box>
+    </Box>
 )

@@ -7,10 +7,11 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { PlansPage } from './pages/PlansPage'
 import App from './App'
 import { MainHeader } from './components/mainHeader'
+import { Routes } from './utils/constants/navigation'
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: Routes.root,
         element: <MainHeader />,
         children: [
             {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
                 element: <App />,
             },
             {
-                path: '/plans',
+                path: Routes.plans,
                 element: <PlansPage />,
             },
         ],
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
     // Catch-all route to redirect any invalid paths home page
     {
         path: '*',
-        element: <Navigate to="/" />,
+        element: <Navigate to={Routes.root} />,
     },
 ])
 
