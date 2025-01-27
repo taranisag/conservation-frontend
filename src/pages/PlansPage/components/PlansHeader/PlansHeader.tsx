@@ -19,11 +19,13 @@ export const PlansHeader: React.FC = () => {
             <Text variant="body2" fontWeight={400}>
                 Conservation Plan Assets
             </Text>
-            <SearchTextField
-                textValue={textValue}
-                onChange={onChange}
-                onClear={onClear}
-            />
+            <Box className={styles.searchTextFieldContainer}>
+                <SearchTextField
+                    textValue={textValue}
+                    onChange={onChange}
+                    onClear={onClear}
+                />
+            </Box>
             <TaranisButton
                 variant="contained"
                 size="medium"
