@@ -15,7 +15,7 @@ import styles from './style.module.scss'
 
 export const MainHeader: React.FC = () => {
     const location = useLocation()
-    const showSubHeader = ['/plans'].includes(location.pathname)
+    const showSubHeader = [Routes.plans].includes(location.pathname)
     const SubHeaderPages = [{ label: 'Plans', path: Routes.plans }]
 
     const popupState = usePopupState({
