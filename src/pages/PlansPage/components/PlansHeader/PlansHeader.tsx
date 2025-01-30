@@ -16,7 +16,7 @@ export const PlansHeader: React.FC = () => {
 
     return (
         <Box className={styles.container}>
-            <Text variant="body2" fontWeight={400}>
+            <Text variant="body2" fontWeight={500}>
                 Conservation Plan Assets
             </Text>
             <Box className={styles.searchTextFieldContainer}>

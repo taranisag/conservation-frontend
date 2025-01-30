@@ -26,7 +26,7 @@ export const MainHeader: React.FC = () => {
     if (location.pathname === '/login') return null
 
     return (
-        <Box>
+        <Box className={styles.container}>
             <Box data-cy="main-header" className={styles.mainHeader}>
                 <IconTaranisConservation sx={{ width: 225, height: 26 }} />
                 <IconAvatar {...bindTrigger(popupState)} />
@@ -36,7 +36,7 @@ export const MainHeader: React.FC = () => {
             </Box>
             {showSubHeader && <SubHeader pages={SubHeaderPages} />}
 
-            <Box data-cy="page-body">
+            <Box data-cy="page-body" className={styles.pageBody}>
                 <Outlet />
             </Box>
         </Box>

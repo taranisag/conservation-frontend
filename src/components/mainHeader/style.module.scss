@@ -1,3 +1,7 @@
+.container {
+    height: 100%;
+}
+
 .mainHeader {
     background-color: var(--mui-palette-common-black);
     padding: calc(var(--mui-spacing) * 1.5) calc(var(--mui-spacing) * 4);
@@ -5,4 +9,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.pageBody {
+    height: calc(100% - 140px);
+    background-color: var(--mui-palette-grey-A100);
+    padding: calc(var(--mui-spacing) * 2);
 }

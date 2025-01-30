@@ -2,8 +2,22 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    height: inherit;
     margin-top: calc(var(--mui-spacing) * 5);
 }
 .midContainer {
     width: 90%;
+}
+
+.caseRow {
+    height: 60px;
+    align-content: center;
+}
+
+.tableContent {
+    display: initial;
+
+    td {
+        padding: calc(var(--mui-spacing)) calc(var(--mui-spacing) * 2);
+    }
 }
