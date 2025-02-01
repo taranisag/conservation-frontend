@@ -3,7 +3,7 @@ import { Box, Text } from 'taranis-ui'
 
 import styles from './style.module.scss'
 
-interface SubHeaderProps {
+type SubHeaderProps = {
     pages: {
         label: string
         path: string
