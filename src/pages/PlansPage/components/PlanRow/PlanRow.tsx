@@ -15,15 +15,14 @@ const statusColors: Record<Plan['status'], string> = {
 
 type PlanRowProps = {
     plan: Plan
-    onRowClick: (plan: Plan) => void
 }
 
-export const PlanRow: React.FC<PlanRowProps> = ({ plan, onRowClick }) => {
+export const PlanRow: React.FC<PlanRowProps> = ({ plan }) => {
     const { id, caseNumber, client, jobStartDate, AppendixLink, status } = plan
 
     return (
         <React.Fragment key={id}>
-            <TableCell onClick={() => onRowClick(plan)}>
+            <TableCell>
                 <Box className={styles.caseRow}>
                     <Text variant="body2" fontWeight={500}>
                         {caseNumber}
